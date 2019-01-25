@@ -5,19 +5,19 @@
   
 
   
-  <title>禾几</title>
+  <title>JS模式学习笔记1 | 禾几</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title:JS模式学习笔记1JS模式笔记基本格式 尽量少使用全局变量 页面通常会有一些第三方人员编写的代码，此时变量名称有可能重名，导致代码出错. 隐含全局变量与全局定义变量的不同：  隐含全局变量(即使是在函数内创建)可以删除 使用var创建的变量不能删除  隐含全局变量相当于window的一个属性  访问全局对象 一般可通过window属性来访问到全局对象，除非申明了名为window的变量">
+  <meta name="description" content="JS模式笔记基本格式 尽量少使用全局变量 页面通常会有一些第三方人员编写的代码，此时变量名称有可能重名，导致代码出错. 隐含全局变量与全局定义变量的不同：  隐含全局变量(即使是在函数内创建)可以删除 使用var创建的变量不能删除  隐含全局变量相当于window的一个属性  访问全局对象 一般可通过window属性来访问到全局对象，除非申明了名为window的变量。 也可以通过如下方式获得 12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="禾几">
+<meta property="og:title" content="JS模式学习笔记1">
 <meta property="og:url" content="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/index.html">
 <meta property="og:site_name" content="禾几">
-<meta property="og:description" content="title:JS模式学习笔记1JS模式笔记基本格式 尽量少使用全局变量 页面通常会有一些第三方人员编写的代码，此时变量名称有可能重名，导致代码出错. 隐含全局变量与全局定义变量的不同：  隐含全局变量(即使是在函数内创建)可以删除 使用var创建的变量不能删除  隐含全局变量相当于window的一个属性  访问全局对象 一般可通过window属性来访问到全局对象，除非申明了名为window的变量">
+<meta property="og:description" content="JS模式笔记基本格式 尽量少使用全局变量 页面通常会有一些第三方人员编写的代码，此时变量名称有可能重名，导致代码出错. 隐含全局变量与全局定义变量的不同：  隐含全局变量(即使是在函数内创建)可以删除 使用var创建的变量不能删除  隐含全局变量相当于window的一个属性  访问全局对象 一般可通过window属性来访问到全局对象，除非申明了名为window的变量。 也可以通过如下方式获得 12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-25T02:10:35.981Z">
+<meta property="og:updated_time" content="2019-01-25T02:12:24.860Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="禾几">
-<meta name="twitter:description" content="title:JS模式学习笔记1JS模式笔记基本格式 尽量少使用全局变量 页面通常会有一些第三方人员编写的代码，此时变量名称有可能重名，导致代码出错. 隐含全局变量与全局定义变量的不同：  隐含全局变量(即使是在函数内创建)可以删除 使用var创建的变量不能删除  隐含全局变量相当于window的一个属性  访问全局对象 一般可通过window属性来访问到全局对象，除非申明了名为window的变量">
+<meta name="twitter:title" content="JS模式学习笔记1">
+<meta name="twitter:description" content="JS模式笔记基本格式 尽量少使用全局变量 页面通常会有一些第三方人员编写的代码，此时变量名称有可能重名，导致代码出错. 隐含全局变量与全局定义变量的不同：  隐含全局变量(即使是在函数内创建)可以删除 使用var创建的变量不能删除  隐含全局变量相当于window的一个属性  访问全局对象 一般可通过window属性来访问到全局对象，除非申明了名为window的变量。 也可以通过如下方式获得 12">
   
     <link rel="alternate" href="/myblog/atom.xml" title="禾几" type="application/atom+xml">
   
@@ -78,10 +78,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS模式学习笔记1
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="title-JS模式学习笔记1"><a href="#title-JS模式学习笔记1" class="headerlink" title="title:JS模式学习笔记1"></a>title:JS模式学习笔记1</h2><h1 id="JS模式笔记"><a href="#JS模式笔记" class="headerlink" title="JS模式笔记"></a>JS模式笔记</h1><h2 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h2><ol>
+        <h1 id="JS模式笔记"><a href="#JS模式笔记" class="headerlink" title="JS模式笔记"></a>JS模式笔记</h1><h2 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h2><ol>
 <li><p><strong>尽量少使用全局变量</strong></p>
 <p>页面通常会有一些第三方人员编写的代码，此时变量名称有可能重名，导致代码出错.</p>
 <p>隐含全局变量与全局定义变量的不同：</p>
@@ -191,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjrbetsdx0001mou1w8q50aku" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjrbeuc7r0004e0u13gny058d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -203,7 +212,7 @@
   
     <a href="/myblog/2019/01/25/DOM获取关系的属性/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">DOM获取关系的属性</div>
     </a>
   
 </nav>
@@ -240,11 +249,11 @@
       <ul>
         
           <li>
-            <a href="/myblog/2019/01/25/JS模式笔记1/">(no title)</a>
+            <a href="/myblog/2019/01/25/JS模式笔记1/">JS模式学习笔记1</a>
           </li>
         
           <li>
-            <a href="/myblog/2019/01/25/DOM获取关系的属性/">(no title)</a>
+            <a href="/myblog/2019/01/25/DOM获取关系的属性/">DOM获取关系的属性</a>
           </li>
         
           <li>
