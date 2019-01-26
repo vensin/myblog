@@ -69,6 +69,101 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JS模式笔记2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/myblog/2019/01/26/JS模式笔记2/" class="article-date">
+  <time datetime="2019-01-26T09:24:20.291Z" itemprop="datePublished">2019-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/myblog/2019/01/26/JS模式笔记2/">JS模式学习笔记2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JS模式学习笔记"><a href="#JS模式学习笔记" class="headerlink" title="JS模式学习笔记"></a>JS模式学习笔记</h1><h4 id="字面量和构造函数"><a href="#字面量和构造函数" class="headerlink" title="字面量和构造函数"></a><em>字面量和构造函数</em></h4><h5 id="对象字面量和语法"><a href="#对象字面量和语法" class="headerlink" title="对象字面量和语法"></a>对象字面量和语法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var man =&#123;</span><br><span class="line">  head :1,</span><br><span class="line">  body :1,</span><br><span class="line">  hands :2</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><em>注意：</em>对象中以逗号分隔属性和方法，在最后的尾随逗号是允许的，但在IE浏览器中会产生错误，因此尽量不要使用。</p>
+<p>在给变量赋值时，别忘了最后的分号。</p>
+<h5 id="解决没有使用NEW的方法"><a href="#解决没有使用NEW的方法" class="headerlink" title="解决没有使用NEW的方法"></a>解决没有使用NEW的方法</h5><ul>
+<li><p>构造函数命名使用大驼峰</p>
+</li>
+<li><p>使用that</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line">	var that =&#123;&#125;;</span><br><span class="line">	that.sex = &quot;man&quot;;</span><br><span class="line">    return that;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自调用构造函数</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function Person()&#123;</span><br><span class="line">    if(!(this instanceof Person)&#123;</span><br><span class="line">        return new Person();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//或者</span><br><span class="line">function Person()&#123;</span><br><span class="line">    if(!(this instanceof arguments.callee)&#123;</span><br><span class="line">        return new Person();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="数组字面量"><a href="#数组字面量" class="headerlink" title="数组字面量"></a>数组字面量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = new Array(&quot;head&quot;,&quot;hand&quot;,&quot;body&quot;);//不建议使用</span><br><span class="line">var b = [&quot;head&quot;,&quot;hand&quot;,&quot;body&quot;];//建议使用</span><br></pre></td></tr></table></figure>
+<p>使用数组字面量的另一个理由是避免构造函数中可能产生的陷阱。</p>
+<p>当向构造函数传递一个参数时，它并不会成为数组的第一个元素，而是会成为数组的长度。如果向构造函数传递一个浮点数，情况会更加糟糕。</p>
+<h5 id="检查数组对象"><a href="#检查数组对象" class="headerlink" title="检查数组对象"></a>检查数组对象</h5><p>以数组为操作符使用typeof时会返回object。</p>
+<p>通常需要知道某一个值是否为一个数组，可以检查代码是否有一些属性或者方法，比如lenght或者slice()方法。但是这些检查机制并不健壮。另外可以使用instanceof Array进行检查，但这种在某些IE浏览器版本中不同框架中运行并不正确。</p>
+<p>ECMA5定义了一个新方法<code>Array.isArray()</code>,该函数在参数为数组时返回true。</p>
+<p>如果当前环境不能使用isArray,还可以通过调用<code>Object.prototype.toString()</code>方法对其检查:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if(typeof Array.isArray() === &quot;undefined&quot;)&#123;</span><br><span class="line"> 		Array.isArray = function (arg) &#123;</span><br><span class="line"> 			return Object.prototype.toString.call(arg) === &quot;[object Array]&quot;;</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h5><p>Javascript Object Notation</p>
+<p>在JSON字符串中，不能使用函数或者正则表达式字面量。<em>（为啥）</em></p>
+<p>使用<code>JSON.parse()</code>来解析字符串安全性会更好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var jstr = &apos;&#123;&quot;mykey&quot;: &quot;my value&quot;&#125;&apos;;</span><br><span class="line">var data = eval(&apos;(&apos;+jstr+&apos;)&apos;);//反模式</span><br></pre></td></tr></table></figure>
+<p>与prase相对应的还有<code>JSON.stringify()</code>。可以将任意的对象或数组（或基本数据类型）序列化为一个字符串。</p>
+<h5 id="正则表达式字面量"><a href="#正则表达式字面量" class="headerlink" title="正则表达式字面量"></a>正则表达式字面量</h5><p>JS中正则表达式也是对象，可以用两种方式创造正则表达式</p>
+<ul>
+<li>使用<code>new RegExp()</code>构造函数</li>
+<li>使用正则表达式字面量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//字面量</span><br><span class="line">var re = /\\/gm;</span><br><span class="line"></span><br><span class="line">//构造函数</span><br><span class="line">var re = new RegExp(&quot;\\\\&quot;,&quot;gm&quot;);</span><br></pre></td></tr></table></figure>
+<p>字面量方式更加简洁，并且不要求按照类似类的构造函数方式思考。因此，建议优先使用字面量模式。</p>
+<h5 id="正则表达式字面量语法"><a href="#正则表达式字面量语法" class="headerlink" title="正则表达式字面量语法"></a>正则表达式字面量语法</h5><p>正则表达式字面量使用了斜杠来包装用于匹配的正则表达式模式。在第二个斜杠后，可以将该模式修改为不加引号的字母形式</p>
+<ul>
+<li>g——-全局匹配</li>
+<li>m——多行</li>
+<li>i——–大小写敏感的匹配</li>
+</ul>
+<p>模式修改器可以以任何顺序或者组合方式出现：<code>var re = /pattern/gmi;</code></p>
+<p>当调用类似String.prototype.replace()的方法以接受正则表达式对象作为参数是，使用正则表达式字面量有利于编写出更简洁的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var l = &quot;abc123CY&quot;.replace(/[a-z]/gi,&quot;&quot;);</span><br><span class="line">console.log(l);//输出123</span><br></pre></td></tr></table></figure>
+<p>使用new RegExp的原因之一在于，某些场景中无法事先确定模式，而只能在运行时以字符串的方式创建。</p>
+<p>正则表达式字面量和构造函数的一个区别在于，字面量在解析是只有一次创建了变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function getRe()&#123;</span><br><span class="line">	var re = /[a-z]/;</span><br><span class="line">	re.foo = &quot;bar&quot;;</span><br><span class="line">	return re;</span><br><span class="line">&#125;</span><br><span class="line">var r1 = getRe(),</span><br><span class="line">	r2 = getRe();</span><br><span class="line">console.log(r1==r2);//输出true，更改之后为false</span><br></pre></td></tr></table></figure>
+<p><strong>不过这种行为在ES5中已经得到了改变，并且字面量会创造新的对象。</strong></p>
+<h5 id="基本值类型包装器"><a href="#基本值类型包装器" class="headerlink" title="基本值类型包装器"></a>基本值类型包装器</h5><p>JS中六个基本的值类型，Number,String,Boolean,Symbol,undefined,null。</p>
+<p>其中除了null和undefined，其他的具有所谓的基本包装对象。可以使用内置构造函数构造，例如<code>new Number();</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var n= 100;</span><br><span class="line">console.log(typeof n);//number</span><br><span class="line">var m = new Number(100);</span><br><span class="line">console.log(typeof m);//object</span><br></pre></td></tr></table></figure>
+<p>包装类型和基本类型的差别就在于包装类型有内置的方法，但是基本类型也可以使用这些方法，它们会被临时转换为对象并使用这些方法。</p>
+<p>一般包装类型是在需要添加额外的属性时使用，基本类型不是对象，不能添加属性。</p>
+<p><strong>当没有使用New时，包装构造函数将传递给它们的值转换成一个基本类型。</strong></p>
+<h5 id="错误对象"><a href="#错误对象" class="headerlink" title="错误对象"></a>错误对象</h5><p>JS中有一些内置错误对象构造函数，比如Error(),SyntaxError().这些错误构造函数都带有throw语句。通过这些错误构造函数创建的错误对象都有以下属性：</p>
+<p>name:</p>
+<p>​    用于创建对象的构造函数的名称属性，可以是一般的”Error”或者更为专门的构造函数，比如”RangeError”。</p>
+<p>message:</p>
+<p>​    创建对象是传递给构造函数的字符串。</p>
+<p>错误对象也还有一些其他的属性，例如发生错误的行号和文件名，但这些额外信息都是浏览器的扩展属性，在多个浏览器实现中并不一致。</p>
+<p>throw适用于任何对象，因此可以选择抛出自己的对象，这种错误对象也可以有属性”name”,”message”,以及任何希望传递给catch语句来处理的信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">	throw&#123;</span><br><span class="line">		name : &quot;myError&quot;,</span><br><span class="line">		message : &quot;opps&quot;,</span><br><span class="line">		extra: &quot; &quot;,</span><br><span class="line">		remedy: genericErrorHandler</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;catch(e)&#123;</span><br><span class="line">	alert(e.message);</span><br><span class="line">	e.remedy();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://vensin.github.io/myblog/2019/01/26/JS模式笔记2/" data-id="cjrd9rwo50003vou143qyz2m0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JS模式笔记1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/myblog/2019/01/25/JS模式笔记1/" class="article-date">
@@ -166,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjrbeydud0003tgu1uqtey772" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjrd9rwo70004vou1sf6ltvd5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/DOM获取关系的属性/" data-id="cjrbeydtr0000tgu19gvbzwq1" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/DOM获取关系的属性/" data-id="cjrd9rwnv0001vou1w3274h9l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/记一次Git修改/" data-id="cjrbeydui0004tgu14svffw8g" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/记一次Git修改/" data-id="cjrd9rwod0005vou13pfxmc6h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/22/Hello/" data-id="cjrbeydu30001tgu14u9b4t8g" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/22/Hello/" data-id="cjrd9rwo30002vou1pt8jxxrb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -384,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/22/DOM文档对象模型/" data-id="cjrbeydua0002tgu15jekar2t" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/22/DOM文档对象模型/" data-id="cjrd9rwnm0000vou1afet2ld0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -425,6 +520,10 @@
       <ul>
         
           <li>
+            <a href="/myblog/2019/01/26/JS模式笔记2/">JS模式学习笔记2</a>
+          </li>
+        
+          <li>
             <a href="/myblog/2019/01/25/JS模式笔记1/">JS模式学习笔记1</a>
           </li>
         
@@ -438,10 +537,6 @@
         
           <li>
             <a href="/myblog/2019/01/22/Hello/">Vensin</a>
-          </li>
-        
-          <li>
-            <a href="/myblog/2019/01/22/DOM文档对象模型/">DOM文档对象模型</a>
           </li>
         
       </ul>
