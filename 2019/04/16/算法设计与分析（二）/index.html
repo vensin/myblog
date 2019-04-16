@@ -5,19 +5,19 @@
   
 
   
-  <title>禾几</title>
+  <title>算法设计与分析（二） | 禾几</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法设计与分析（二）减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是">
+  <meta name="description" content="减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是从实例中减去一个相同的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="禾几">
+<meta property="og:title" content="算法设计与分析（二）">
 <meta property="og:url" content="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/index.html">
 <meta property="og:site_name" content="禾几">
-<meta property="og:description" content="算法设计与分析（二）减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是">
+<meta property="og:description" content="减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是从实例中减去一个相同的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-16T15:02:01.872Z">
+<meta property="og:updated_time" content="2019-04-16T15:07:04.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="禾几">
-<meta name="twitter:description" content="算法设计与分析（二）减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是">
+<meta name="twitter:title" content="算法设计与分析（二）">
+<meta name="twitter:description" content="减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是从实例中减去一个相同的">
   
     <link rel="alternate" href="/myblog/atom.xml" title="禾几" type="application/atom+xml">
   
@@ -78,10 +78,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      算法设计与分析（二）
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h2 id="算法设计与分析（二）"><a href="#算法设计与分析（二）" class="headerlink" title="算法设计与分析（二）"></a>算法设计与分析（二）</h2><h1 id="减治法"><a href="#减治法" class="headerlink" title="减治法"></a>减治法</h1><p> 减治技术利用了一个问题<strong>给定实例的解</strong>和<strong>同样问题较小实例的解</strong>之间的某种关系</p>
+        <h1 id="减治法"><a href="#减治法" class="headerlink" title="减治法"></a>减治法</h1><p> 减治技术利用了一个问题<strong>给定实例的解</strong>和<strong>同样问题较小实例的解</strong>之间的某种关系</p>
 <p>。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为<strong>增量法</strong>。</p>
 <p>减治法有三种主要的变化形式：</p>
 <ul>
@@ -100,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjujx1kzn0001q8u14e80p60c" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjujx8fae000590u1yim0c5dv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -112,7 +121,7 @@
   
     <a href="/myblog/2019/04/16/算法设计与分析（一）/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">算法设计与分析（一）</div>
     </a>
   
 </nav>
@@ -149,11 +158,11 @@
       <ul>
         
           <li>
-            <a href="/myblog/2019/04/16/算法设计与分析（二）/">(no title)</a>
+            <a href="/myblog/2019/04/16/算法设计与分析（二）/">算法设计与分析（二）</a>
           </li>
         
           <li>
-            <a href="/myblog/2019/04/16/算法设计与分析（一）/">(no title)</a>
+            <a href="/myblog/2019/04/16/算法设计与分析（一）/">算法设计与分析（一）</a>
           </li>
         
           <li>
