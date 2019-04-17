@@ -106,11 +106,17 @@
 </li>
 </ul>
 <p>虽然等号右边的那些参数总是小于等号左边的参数，但它们既不是以常量也不是以常量因子的方式减小的。</p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>我们考虑用减一法来对一个数组A[0…n-1]进行排序。</p>
+<p>根据该思想，我们假设A[0…n-2]已经有序，接下来只需要把A[n-1]插入即可。我们可以从头到尾扫描A[0…n-2]，直到找到第一个小于或等于A[n-1]的元素，将A[n-1]插入该元素的后面。这种算法被称为直接插入排序或者插入排序。</p>
+<p>虽然插入排序很明显是基于递归思想的，但是自底向上的实现这个算法，使用迭代效率会更高。</p>
+<p>算法伪代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InsertionSort(A[0...n-1])</span><br><span class="line">for i←1 to n-1 do</span><br><span class="line">	v← A[i]</span><br><span class="line">	j←i-1</span><br><span class="line">	while A[j]&gt;v and j&gt;=0 do</span><br><span class="line">		A[j+1]←A[j]</span><br><span class="line">		j←j-1</span><br><span class="line">	A[j+1]←v</span><br></pre></td></tr></table></figure>
+<p>该算法的基本操作为v&gt;A[j]</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjukm9sw60004osu1nugy8zue" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjuknjah50004k8u12h6si9ye" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（一）/" data-id="cjukm9swj0006osu1rqi9dkh9" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（一）/" data-id="cjuknjah90005k8u1uam4r427" class="article-share-link">Share</a>
       
       
     </footer>
@@ -341,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/26/JS模式笔记2/" data-id="cjukm9sw30003osu13hq7r8cg" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/26/JS模式笔记2/" data-id="cjuknjah00003k8u1mzu65d5t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -448,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjukm9svz0002osu199dw9xnq" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjuknjagw0002k8u13d7wcyks" class="article-share-link">Share</a>
       
       
     </footer>
@@ -497,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/DOM获取关系的属性/" data-id="cjukm9svf0001osu1w0so0exp" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/DOM获取关系的属性/" data-id="cjuknjagr0001k8u1xpgodcso" class="article-share-link">Share</a>
       
       
     </footer>
@@ -536,7 +542,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/记一次Git修改/" data-id="cjukm9swg0005osu105j0blmb" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/记一次Git修改/" data-id="cjuknjahd0006k8u17modxfbu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -556,10 +562,19 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/myblog/2019/01/22/DOM文档对象模型/">DOM获取元素的方法</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: DOM获取元素的方法</p>
-<p><em>DOM是描述整个HTML页面中节点关系的图谱</em></p>
+        <p><em>DOM是描述整个HTML页面中节点关系的图谱</em></p>
 <h2 id="获取页面中元素的方法"><a href="#获取页面中元素的方法" class="headerlink" title="获取页面中元素的方法"></a>获取页面中元素的方法</h2><ol>
 <li><p><strong>document.getElementById(“id名”) ;</strong></p>
 <p>获取文档中的一个元素，如果没有获取到，值为null</p>
@@ -611,7 +626,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/22/DOM文档对象模型/" data-id="cjukm9stl0000osu1xzv5p6ek" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/22/DOM文档对象模型/" data-id="cjuknjag40000k8u174or10n4" class="article-share-link">Share</a>
       
       
     </footer>

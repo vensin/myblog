@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="禾几">
 <meta property="og:description" content="减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是从实例中减去一个相同的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-16T15:07:04.292Z">
+<meta property="og:updated_time" content="2019-04-17T03:11:43.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法设计与分析（二）">
 <meta name="twitter:description" content="减治法 减治技术利用了一个问题给定实例的解和同样问题较小实例的解之间的某种关系 。一旦确定了这种关系，我们既可以自顶向下也可以自底向上的来运用该关系。虽然自顶向下会自然的导致出递归算法，但最终还是非递归实现较好。自底向上往往是迭代实现的，从求解问题的一个较小实例开始，该方法有时也称为增量法。 减治法有三种主要的变化形式：  减去一个常量 在减常量的变化形式中，每次迭代算法总是从实例中减去一个相同的">
@@ -105,11 +105,17 @@
 </li>
 </ul>
 <p>虽然等号右边的那些参数总是小于等号左边的参数，但它们既不是以常量也不是以常量因子的方式减小的。</p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>我们考虑用减一法来对一个数组A[0…n-1]进行排序。</p>
+<p>根据该思想，我们假设A[0…n-2]已经有序，接下来只需要把A[n-1]插入即可。我们可以从头到尾扫描A[0…n-2]，直到找到第一个小于或等于A[n-1]的元素，将A[n-1]插入该元素的后面。这种算法被称为直接插入排序或者插入排序。</p>
+<p>虽然插入排序很明显是基于递归思想的，但是自底向上的实现这个算法，使用迭代效率会更高。</p>
+<p>算法伪代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InsertionSort(A[0...n-1])</span><br><span class="line">for i←1 to n-1 do</span><br><span class="line">	v← A[i]</span><br><span class="line">	j←i-1</span><br><span class="line">	while A[j]&gt;v and j&gt;=0 do</span><br><span class="line">		A[j+1]←A[j]</span><br><span class="line">		j←j-1</span><br><span class="line">	A[j+1]←v</span><br></pre></td></tr></table></figure>
+<p>该算法的基本操作为v&gt;A[j]</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjukm9sw60004osu1nugy8zue" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjuknjah50004k8u12h6si9ye" class="article-share-link">Share</a>
       
       
     </footer>
