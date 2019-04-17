@@ -5,20 +5,20 @@
   
 
   
-  <title>禾几</title>
+  <title>Vensin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="所有的相遇都是久别重逢">
 <meta property="og:type" content="website">
-<meta property="og:title" content="禾几">
+<meta property="og:title" content="Vensin">
 <meta property="og:url" content="http://vensin.github.io/myblog/index.html">
-<meta property="og:site_name" content="禾几">
+<meta property="og:site_name" content="Vensin">
 <meta property="og:description" content="所有的相遇都是久别重逢">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="禾几">
+<meta name="twitter:title" content="Vensin">
 <meta name="twitter:description" content="所有的相遇都是久别重逢">
   
-    <link rel="alternate" href="/myblog/atom.xml" title="禾几" type="application/atom+xml">
+    <link rel="alternate" href="/myblog/atom.xml" title="Vensin" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -37,11 +37,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/myblog/" id="logo">禾几</a>
+        <a href="/myblog/" id="logo">Vensin</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/myblog/" id="subtitle">秃头少女不秃头</a>
+          <a href="/myblog/" id="subtitle">瞎几把发表的笔记文章</a>
         </h2>
       
     </div>
@@ -106,17 +106,19 @@
 </li>
 </ul>
 <p>虽然等号右边的那些参数总是小于等号左边的参数，但它们既不是以常量也不是以常量因子的方式减小的。</p>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>我们考虑用减一法来对一个数组A[0…n-1]进行排序。</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>我们考虑用减一法来对一个数组A[0…n-1]进行排序。</p>
 <p>根据该思想，我们假设A[0…n-2]已经有序，接下来只需要把A[n-1]插入即可。我们可以从头到尾扫描A[0…n-2]，直到找到第一个小于或等于A[n-1]的元素，将A[n-1]插入该元素的后面。这种算法被称为直接插入排序或者插入排序。</p>
 <p>虽然插入排序很明显是基于递归思想的，但是自底向上的实现这个算法，使用迭代效率会更高。</p>
 <p>算法伪代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InsertionSort(A[0...n-1])</span><br><span class="line">for i←1 to n-1 do</span><br><span class="line">	v← A[i]</span><br><span class="line">	j←i-1</span><br><span class="line">	while A[j]&gt;v and j&gt;=0 do</span><br><span class="line">		A[j+1]←A[j]</span><br><span class="line">		j←j-1</span><br><span class="line">	A[j+1]←v</span><br></pre></td></tr></table></figure>
-<p>该算法的基本操作为v&gt;A[j]</p>
-
+<p>该算法的基本操作为v&gt;A[j],明显该算法的效率依赖于特定的输入。</p>
+<p>当输入为一个降序数组时，该算法的效率最低，对于这种输入的键值比较次数是<br>$$<br>C(n)=(n-1)n/2∈Θ(n^2)<br>$$</p>
+<p>在最好情况下，也就是数组升序时，该算法效率最高，此时键值比较次数是<br>$$<br>C(n)=n-1∈Θ(n)<br>$$<br>该算法平均效率的精确分析主要基于对无序元素对的研究，这种分析表明，对于随机序列的数组，插入排序的平均比较次数是降序数组的一半，也就是<br>$$<br>C(n)=n^2/4∈Θ(n^2)<br>$$</p>
+<h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjuknjah50004k8u12h6si9ye" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（二）/" data-id="cjuknxlbt0005uku12xb6rr9v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -252,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（一）/" data-id="cjuknjah90005k8u1uam4r427" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/04/16/算法设计与分析（一）/" data-id="cjuknxlbs0004uku1tqjk93v8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -347,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/26/JS模式笔记2/" data-id="cjuknjah00003k8u1mzu65d5t" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/26/JS模式笔记2/" data-id="cjuknxlbr0003uku12vmaehdn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -454,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjuknjagw0002k8u13d7wcyks" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/JS模式笔记1/" data-id="cjuknxlbn0001uku1wfyajgpb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -503,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/DOM获取关系的属性/" data-id="cjuknjagr0001k8u1xpgodcso" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/DOM获取关系的属性/" data-id="cjuknxlbp0002uku1nih78jyp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -542,7 +544,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/25/记一次Git修改/" data-id="cjuknjahd0006k8u17modxfbu" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/25/记一次Git修改/" data-id="cjuknxlbu0006uku1z59nl6su" class="article-share-link">Share</a>
       
       
     </footer>
@@ -626,7 +628,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://vensin.github.io/myblog/2019/01/22/DOM文档对象模型/" data-id="cjuknjag40000k8u174or10n4" class="article-share-link">Share</a>
+      <a data-url="http://vensin.github.io/myblog/2019/01/22/DOM文档对象模型/" data-id="cjuknxlbf0000uku1r0pm9mgt" class="article-share-link">Share</a>
       
       
     </footer>
