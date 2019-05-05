@@ -41,7 +41,7 @@
   <body>
     
 
-<header class="blog-slide" style="height: 230px">
+<header class="blog-slide" style="height: px">
   <nav class="blog-header">
     <a class="mobile toggle-button"><i class="fas fa-bars fa-lg"></i></a>
     <ul>
@@ -53,7 +53,7 @@
       
     </ul>
   </nav>
-  <h1 class="subtitle"><span id='jinrishici-sentence'>Archives</span></h1>
+  <h1 class="subtitle"><span id='jinrishici-sentence'>瞎几把发表的笔记文章</span></h1>
 </header>
     <nav id="menu">
   
@@ -63,49 +63,130 @@
   
 </nav>
     
-    <main class="blog-main" style="margin-top: 50px">
-      <section class="blog-archive">
+    <main class="blog-main" style="margin-top: -150px">
+      
+    <article class="blog-post">
   
+
+  <div class="post-content">
+    <div class="post-header">
+      
+        
   
-    <div class="archive-year">
-      <h2 class="archive-title"><i class="fas fa-archive"></i>2019</h2>
-      <div class="articles">
+    <h1 class="post-title">
+      <a href="/myblog/2019/01/25/记一次Git修改/">
+        记一次Git修改
+      </a>
+    </h1>
+  
+
       
-        <div class="articles-content">
-            <time class="is-text-small" datetime="2019-04-21T02:35:28.807Z" itemprop="datePublished">04-21</time>
-            <a href="/myblog/2019/04/21/算法设计与分析（五）/">算法设计与分析（五）</a>
-        </div>
-        <hr>
-      
-        <div class="articles-content">
-            <time class="is-text-small" datetime="2019-04-19T13:56:18.135Z" itemprop="datePublished">04-19</time>
-            <a href="/myblog/2019/04/19/算法设计与分析（四）/">算法设计与分析（四）</a>
-        </div>
-        <hr>
-      
-        <div class="articles-content">
-            <time class="is-text-small" datetime="2019-04-19T09:39:18.250Z" itemprop="datePublished">04-19</time>
-            <a href="/myblog/2019/04/19/算法设计与分析（三）/">算法设计与分析（三）</a>
-        </div>
-        <hr>
-      
-        <div class="articles-content">
-            <time class="is-text-small" datetime="2019-04-16T13:24:29.023Z" itemprop="datePublished">04-16</time>
-            <a href="/myblog/2019/04/16/算法设计与分析（二）/">算法设计与分析（二）</a>
-        </div>
-        <hr>
-      
-        <div class="articles-content">
-            <time class="is-text-small" datetime="2019-04-16T12:22:10.951Z" itemprop="datePublished">04-16</time>
-            <a href="/myblog/2019/04/16/算法设计与分析（一）/">算法设计与分析（一）</a>
-        </div>
-        <hr>
-      
-      </div>
     </div>
+    <div class="post-detail">
+      
+        <h1 id="远程仓库与本地仓库不同步"><a href="#远程仓库与本地仓库不同步" class="headerlink" title="远程仓库与本地仓库不同步"></a>远程仓库与本地仓库不同步</h1><p>我的git仓库本来是不作为博客使用，后来用Hexo搭建了博客后，远程仓库里的东西自动替换成了与博客有关并且原来的文件消失了,而本地仓库没变。然后又在本地仓库将以前的文件删除了，本想将本地仓库中的删除并且将远程仓库中的pull下来，但是提示fatal: refusing to merge unrelated histories</p>
+<p>折腾许久，最后执行了下列步骤后远程仓库变成了博客文件替换前+替换后文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clean -d -fx</span><br><span class="line">$ git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+        <hr>
+      
+    </div>
+
+    
+
+    
+  </div>
+</article>
+
+
+    <article class="blog-post">
+  
+
+  <div class="post-content">
+    <div class="post-header">
+      
+        
+  
+    <h1 class="post-title">
+      <a href="/myblog/2019/01/22/DOM文档对象模型/">
+        DOM获取元素的方法
+      </a>
+    </h1>
+  
+
+      
+    </div>
+    <div class="post-detail">
+      
+        <p><em>DOM是描述整个HTML页面中节点关系的图谱</em></p>
+<h2 id="获取页面中元素的方法"><a href="#获取页面中元素的方法" class="headerlink" title="获取页面中元素的方法"></a>获取页面中元素的方法</h2><ol>
+<li><p><strong>document.getElementById(“id名”) ;</strong></p>
+<p>获取文档中的一个元素，如果没有获取到，值为null</p>
+<p>//这个的上下文只能是document</p>
+<p>//我们可以直接用id名来代表当前元素（不推荐）</p>
+<p>//若id名重复，只获取最前面的一个。</p>
+<p>//在IE6IE7中，会把表单元素input的name值当做id来使用</p>
+<p>//在IE6IE7中，不区分大小写</p>
+<p>//注意不要让表单的name和id值重复，不要用大小写来区分不同id</p>
+</li>
+<li><p><strong>context.getElementsByTagName(“元素标签名”)；</strong></p>
+<p>通过标签名获取整个文档中的一组元素。获取的是一个对象数据模型，也是一个类数组（元素从0开始计数）</p>
+<p>//context称之为上下文,可以限定获取元素的范围</p>
+<p>//document是从整个文档</p>
+<p>//var div=document.getElementById(“tab”);</p>
+<p>   var oli=div.getElementsByTagName(“li”);</p>
+<p>//oli.length(oli[“length”])可以获取元素的个数</p>
+<p>//获取第一个元素</p>
+<p> oli[0] 或者  oli.item(0)</p>
+</li>
+<li><p><strong>context.getElementsByName()</strong></p>
+<p>通过name值获取一组元素</p>
+<p>//在IE浏览器下，只对表单起作用</p>
+<p>//应用于获取具有同样name的表单元素</p>
+</li>
+<li><p><strong>context.getElementsByClass(“”)</strong></p>
+<p>通过类名获取整个文档中的一组元素。</p>
+<p>//项目中多用class，所以这个方法用的多，但是不兼容</p>
+<p>//IE6，7，8会报错</p>
+<p>//自己写一个兼容的</p>
+</li>
+<li><p><strong>document.documentElement//获取html</strong></p>
+<p> document.body//获取body</p>
+<p>   应用：获取当前屏幕的宽度</p>
+<p>   var curWidth=document.documentElement.clientWidth//兼容所有浏览器</p>
+</li>
+<li><p><strong>移动端获取元素常用的方法（IE678不兼容）</strong></p>
+<p>document.querySelector()//获取一个</p>
+<p>​    document.querySelectorAll()//获取多个</p>
+<p>querySelector,jQuery中的选择器是参考css中的选择器的规则</p>
+<p>例子： var odiv =document.querySelector(“#tab”) // “#id” “.class”  “li”  “#tab li”</p>
+<p>​            var oinput=document.querySelectorAll(“input[type=’radio’]”)</p>
+</li>
+</ol>
+<h3 id="动态创建一个元素"><a href="#动态创建一个元素" class="headerlink" title="动态创建一个元素"></a>动态创建一个元素</h3><p>var odiv=document.createElement(“div”);</p>
+<p>添加到页面中</p>
+<p>ducument.body(添加到该元素).appendChild(odiv);</p>
+
+        <hr>
+      
+    </div>
+
+    
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="blog-pager">
+  
+    <a class="prev" href="/myblog/"><i class="fas fa-angle-left"></i>prev</a>
   
   
-</section>
+</nav>
+
     </main>
     
     <div class="back-to-top" id="back-to-top"><i class="fas fa-arrow-alt-circle-up fa-2x"></i></div>
