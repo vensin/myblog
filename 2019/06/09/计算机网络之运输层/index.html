@@ -1,0 +1,246 @@
+
+
+<html lang="">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+  <meta name="theme-color" content="#42dbbc" />
+  <meta name="msapplication-navbutton-color" content="#f8f5ec" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec" />
+
+  
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/myblog/images/favicon.ico" />
+  
+
+  <title>Vensin</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  
+    <link rel="stylesheet" type="text/css" href="/myblog/lib/fancybox/jquery.fancybox.css" />
+  
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+
+  <link rel="stylesheet" href="/myblog/css/style.css">
+
+  
+
+  <script>
+    window.config = {"title":"Vensin","subtitle":"About Me","description":"所有的相遇都是久别重逢","author":"Vensin","language":null,"timezone":null,"url":"http://vensin.github.io/myblog","root":"/myblog/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":"atom-one-light","default_category":"uncategorized","category_map":null,"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"cicada","deploy":{"type":"git","repo":"https://github.com/vensin/myblog.git","branch":"master"},"ignore":[],"keywords":null,"index_generator":{"per_page":10,"order_by":"-date","path":""},"archive_generator":{"per_page":10,"yearly":true,"monthly":true,"daily":false},"category_generator":{"per_page":10},"tag_generator":{"per_page":10},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"ip":"0.0.0.0","compress":false,"header":true},"favicon":"/images/favicon.ico","menu":{"home":"/","archives":"/archives"},"show_tag":true,"show_category":false,"excerpt_link":"Read More","fancybox":true,"disqus_shortname":null,"rss":"default","social":{"email":"dasd","instagram":"dasd","douban":"das","linkedin":"dsa","weibo":null,"stackoverflow":null,"facebook":null,"twitter":null,"github":null,"google":null,"zhihu":null,"pocket":null},"friends":{"Mos's Blog":"https://kexin-li.github.io"},"google_analytics":null,"portfolio":{"subtitle":"Some Works","cards":{"card1":{"cover":"/images/screenshot.png","content":"Cicada is a concise and retro Hexo theme.","link":"https://github.com/Kexin-Li/hexo-theme-cicada"},"card2":{"cover":"/images/screenshot.png","content":"Cicada is a Hexo theme, it tastes like summer.","link":"http://kexin-li.github.io"},"card3":{"cover":"/images/screenshot.png","content":"Cicada is a Hexo theme, it tastes like summer.","link":"http://kexin-li.github.io"}}},"about":null,"poem":false};
+  </script>
+</head>
+  <body>
+    
+
+<header class="blog-slide" style="height: px">
+  <nav class="blog-header">
+    <a class="mobile toggle-button"><i class="fas fa-bars fa-lg"></i></a>
+    <ul>
+      <li class="title"><a href="/">Vensin</a></li>
+      
+        <li class="nav-item"><a href="/myblog/">Home</a></li>
+      
+        <li class="nav-item"><a href="/myblog/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+  <h1 class="subtitle"><span id='jinrishici-sentence'>瞎几把发表的笔记文章</span></h1>
+</header>
+    <nav id="menu">
+  
+    <a href="/myblog/">Home</a>
+  
+    <a href="/myblog/archives">Archives</a>
+  
+</nav>
+    
+    <main class="blog-main" style="margin-top: -150px">
+      <article class="blog-post">
+  
+
+  <div class="post-content">
+    <div class="post-header">
+      
+        
+  
+    <h1 class="post-title">
+      <a href="/myblog/2019/06/09/计算机网络之运输层/">
+        计算机网络——运输层
+      </a>
+    </h1>
+  
+
+<div class="post-meta">
+  2019-06-09
+  
+  
+</div>
+
+      
+    </div>
+    <div class="post-detail">
+      
+        <h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><p>​        从通信和信息处理的角度来看，运输层向它上面的应用层提供通信服务，属于面向通信部分的最高层。同时也是用户功能中的最底层。运输层是为相互通信的进程之间提供逻辑通信。</p>
+<p>​        我们知道IP协议就能准确的将信息送到对应IP地址的主机，但是为什么还需要运输层呢？实际上通信是进程与进程的交换数据，到达对应主机后，这个分组还停留在主机的网络层，接下来还需要交付给对应的进程，此时就需要运输层的信息来确定交付给哪个进程。通信的真正端点并不是主机而是<strong>主机中的进程</strong>，也就是<strong>端到端的通信</strong>。</p>
+<p>​        通常一个主机会同时运行许多进程，所以运输层有两个很重要的功能——<strong>复用</strong>和<strong>分用</strong>。复用指发送方不同的进程都可以使用同一个运输层传输协议 ，分用则是剥开首部后可以能将数据正确的交付给对应进程。</p>
+<p>​        运输层除了为进程提供逻辑通信以外，还有一个重要的功能——<strong>差错检测</strong>。 在网络层，只检测首部是否出现错误而不检测数据部分。 根据应用程序的不同需求，运输层有两个协议，无连接的<strong>UDP</strong>和面向连接的<strong>TCP</strong>。</p>
+<p>​        运输层向高层用户屏蔽了下面网络核心的细节，使得应用进程看见的就是一条端到端的逻辑通信信道，但。但因为不同的协议，这条逻辑信道向上层的表现有很大的差别。当运输层采用可靠的TCP协议时，尽管网络层的传输是不可靠的，但是对于应用层来说，他还是一条可靠的全双工通信信道。如果使用的是不可靠的UDP协议，那么这条逻辑信道还是不可靠的。</p>
+<h5 id="运输层的两个主要协议"><a href="#运输层的两个主要协议" class="headerlink" title="运输层的两个主要协议"></a>运输层的两个主要协议</h5><p>TCP/IP运输层的两个主要协议都是互联网的正式标准，即</p>
+<ol>
+<li><strong>用户数据报协议UDP</strong></li>
+<li><strong>传输控制协议TCP</strong></li>
+</ol>
+<p>按照OSI的术语，两个对等运输实体在通信是传送的数据单位叫做<strong>运输协议数据单元</strong>。但在TCP/IP体系中，根据协议的不同，分别称之为<strong>TCP报文段</strong>，或者<strong>UDP用户数据报</strong>。</p>
+<p>​        UDP在传输前不需要建立连接，目的主机收到数据后也不需要给出确认。</p>
+<p>​        TCP则提供面向连接的服务。在传送前要建立连接，传输完成后要释放连接。TCP不提供广播或多播服务。由于TCP要提供可靠的传输服务，因此多了许多开销，如确认，流量控制，计时器及连接管理等。</p>
+<h5 id="运输层的端口"><a href="#运输层的端口" class="headerlink" title="运输层的端口"></a>运输层的端口</h5><p>​        计算机的进程是由进程标识符来标识的，但是不同操作系统的格式又有所不同，因此我们需要一个统一的标识符。但是，把一个机器上的特定进程指定为通信的终点还是不可取的，因为进程的创建和撤销是动态的，另外，我们往往需要利用目的主机提供的功能来识别终点，而不需要知道具体实现这个功能的进程是哪个（例如，要和某个邮件服务器通信，并不需要知道这个服务器功能是由目的主机的哪个进程实现的）。此时需要用运输层的<strong>协议端口号</strong>来解决这个问题。</p>
+<p>​        协议端口号是<strong>软件端口</strong>，是<strong>应用层和各种协议进程与运输实体进行层间交互的一种地址</strong>。TCP协议用16为端口号来标志一个端口。端口号只具有本地意义，不同计算机中端口号是没有关联的。</p>
+<h4 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h4><ol>
+<li><p>UDP是<strong>无连接</strong>的</p>
+</li>
+<li><p>UDP使用<strong>尽最大努力交付</strong></p>
+</li>
+<li><p>UDP是面向报文的</p>
+<p>UDP对于应用层的交下来的报文仅加上首部就交付给网络层，对于网络层交付的文件仅剥掉首部就交付给应用层。</p>
+</li>
+<li><p>UDP没有拥塞控制</p>
+<p>因此网络拥塞不会使得发送速率降低，这对某些应用来说是很重要的。</p>
+</li>
+<li><p>UDP支持一对一，一对多，多对一和多对多的交互通信。</p>
+</li>
+<li><p>UDP的首部开销小，只有8个字节。</p>
+</li>
+</ol>
+<h5 id="UDP首部格式"><a href="#UDP首部格式" class="headerlink" title="UDP首部格式"></a>UDP首部格式</h5><p>用户数据报UDP有两个字段，数据字段和首部字段。首部字段有8个字节，由四个字段组成，每个字段两个字节，分别表示源端口（原端口号，不需要时可全用0），目的端口（在终点交付报文时必须使用），长度（UDP数据报的长度，最小值为8，此时仅有首部），检验和（检测数据报在传输中是否有错）。</p>
+<p>​        UDP用户数据报中首部检验和的方法有些特殊。在计算检验和是，要在首部前加上伪首部（由源IP地址，目的IP地址，全0,，17，UDP长度组成），再和UDP数据报一起看成是由许多16位的字串连接起来的。把这些16位数按反码求和，将结果求反码之后写入检验和。</p>
+<h4 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h4><p>TCP是TCP/IP体系中非常复杂的一个协议。</p>
+<ol>
+<li>TCP是<strong>面向连接</strong>的传输层协议。在数据传输前要建立连接，传输完成后要释放连接。</li>
+<li>每条TCP连接只能有<strong>两个端点</strong>。每一条TCP只能是点对点连接的。</li>
+<li>TCP提供<strong>可靠交付</strong>的服务。</li>
+<li>TCP提供<strong>全双工通信</strong>。</li>
+<li><strong>面向字节流</strong>。TCP中的流指的是流入到进程或从进程流出的字节序列。面向字节流的含义是 ，虽然应用程序和TCP的交互是一次一个数据块，但TCP把应用程序交下来的程序看成是一个字节流，可能接收方交付给应用层的数据块数量和发送方不一样（例如发送方应用层交付的数据块是10个，但接收方可能用4个数据块就交付给应用层），但是最终字节流是一样的。</li>
+</ol>
+<h5 id="TCP的连接"><a href="#TCP的连接" class="headerlink" title="TCP的连接"></a>TCP的连接</h5><p>TCP连接的两个端既不是TP地址，也不是运输层的协议端口，而是套接字（socket）或插口。根据RFC 793的定义，端口号拼接到IP地址即构成了套接字，例如192.168.3.2：8808。</p>
+<p>每条TCP连接被通信两端的端口唯一的确定。同一个IP地址可以有很多个TCP连接，同一个端口号也可以出现在多个不同的TCP连接中。</p>
+<h4 id="可靠传输的原理"><a href="#可靠传输的原理" class="headerlink" title="可靠传输的原理"></a>可靠传输的原理</h4><h5 id="停止等待协议"><a href="#停止等待协议" class="headerlink" title="停止等待协议"></a>停止等待协议</h5><ol>
+<li><p>无差错情况</p>
+<p>​        发送方A向接收方B发送分组M1，B收到之后向A发送确认，A收到确认后向B发送分组M2，如此循环。</p>
+</li>
+<li><p>出现差错</p>
+<p>​        B在接收M1时可能检测出了 差错，此时B丢弃这个错误分组，并且不发送确认。也可能分组子传输中丢失，此时B无法收到分组，也什么都不做。A只要超过一定时间没有没有收到B的确认，就重新传输前面发出的分组，这叫<strong>超时重传</strong>，要实现超时重传，就要在发出一个分组后设置一个超时计时器。若是在计时器结束之前收到了确认，就撤销该计时器。</p>
+<p>这里有三点需要注意的地方：</p>
+<p>（1）在发送完一个分组后，必须暂时保留已发出分组的副本，方便超时重传，收到确认后方可丢弃。</p>
+<p>（2）对每个分组和分组确认进行编号，这样才能明确发出的分组和收到的确认。</p>
+<p>（3）计时器设置的重传时间需要大于在网络中传输的往返时延。</p>
+</li>
+<li><p>确认丢失和确认迟到</p>
+<p>​        假设B对A的M1确认丢失了，A无法在设定的时间内收到，A会分组M1，B再次收到M1后，会再次发送对M1的确认，并且丢弃该重复的M1.</p>
+</li>
+<li><p>信道利用率</p>
+<p>​        停止等待协议的优点是简单，但缺点是信道利用率低。假设A发送分组的时间为TD，B收到分组后处理的时间忽略不计，B发送确认分组的时间为TA，则总的时间为TA+RTT+TA（RTT为往返时间），因此信道利用率可用如下式子计算，<br>$$<br>U=TD/(TD+RTT+TA)<br>$$</p>
+</li>
+</ol>
+<p>当往返时间RTT远大于发送时间时，信道的利用率就会非常低。若出现重传，则对传送有用的数据信息来说，信道的利用率就更低。为了提高传输效率，发送方可用采用流水线传输，即连续发送分组，不必每发完一个分组就听下来等待确认。</p>
+
+        <hr>
+      
+    </div>
+
+    
+      
+    
+
+    
+      
+  
+
+      <div class="post-more">
+  
+  
+  <div class="post-next">
+    <span>next</span>
+    <a href="/myblog/2019/06/03/计算机网络（一）/"></a>
+  </div>
+  
+</div>
+      
+    
+  </div>
+</article>
+
+    </main>
+    
+    <div class="back-to-top" id="back-to-top"><i class="fas fa-arrow-alt-circle-up fa-2x"></i></div>
+
+    <footer class="blog-footer">
+  
+
+
+<hr>
+<div class="blog-footer-friends">
+  <p class="title">FRIENDS</p>
+  <div class="friends">
+  
+    <a href="https://kexin-li.github.io" target="_blank">Mos&#39;s Blog</a>
+  
+  </div>
+</div>
+
+  
+
+
+  <div class="blog-footer-social">
+    <ul>
+      
+        
+          <li><a class="iconfont icon-email" href="mailto:dasd"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-instagram" href="dasd"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-douban" href="das"></a></li>
+        
+      
+        
+          <li><a class="iconfont icon-linkedin" href="dsa"></a></li>
+        
+      
+      
+        
+        <li><a class="iconfont icon-rss" href="/myblog/atom.xml"></a></li>
+      
+    </ul>
+  </div>
+ 
+  <div class="blog-footer-copyright">
+  <p class="copyright">Copyright © 2018 Vensin. Powered by <a href="https://hexo.io/">Hexo</a> and <a href="https://github.com/Kexin-Li/hexo-theme-cicada">Cicada</a>. <iframe src="https://ghbtns.com/github-btn.html?user=Kexin-Li&repo=hexo-theme-cicada&type=star&count=false&size=small" frameborder="0" scrolling="0" width="58px" height="30px" style="margin-bottom: -15px"></iframe></p>
+</div>
+</footer>
+
+<script type="text/javascript" src="/myblog/lib/jquery/jquery.min.js"></script>
+
+
+  <script type="text/javascript" src="/myblog/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<!--  -->
+
+
+
+
+<script type="text/javascript" src="/myblog/js/cicada.js"></script>
+  </body>
+</html>
